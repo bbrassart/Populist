@@ -1,0 +1,26 @@
+
+<div ng-controller="PopulistCtrl">
+  {{firstName}} {{lastName}}
+</div>
+
+<div ng-controller="NamesCtrl">
+  <input type="text" ng-model="query" placeholder="Search for a player">
+  <h1>Players sorted by votes</h1>
+  <table>
+    <tr>
+      <th><a href="" ng-click="sortField = 'name'">Name</a></th>
+      <th><a href="" ng-click="sortField = '-votes'">Number of votes</a></th>
+      <th>Delete?</th>
+    </tr>
+    <tr ng-repeat="person in people | filter:query | orderBy:sortField">
+      <td>{{person.name}}</td>
+      <td>{{person.votes}}</td>
+      <td><a href="" ng-click="removePerson(person)">X</a></td>
+    </tr>
+  </table>
+  <form ng-submit="addPerson()">
+    <input type="text" ng-model="enteredName" placeholder="Enter a name">
+    <input type="text" ng-model="enteredAge" placeholder="Enter an age">
+    <input type="submit" value="Add to the list">
+  </form>
+</div>
