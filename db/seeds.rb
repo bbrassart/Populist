@@ -10,5 +10,5 @@ Player.destroy_all
 numbers = [*1..100]
 
 30.times do
-  Player.create(name: Faker::Name.name, votes: numbers.sample)
+  Player.create(name: Faker::Name.name, votes: numbers.sample, birth_date: Faker::Date.between(100.years.ago, 21.years.ago))
 end
