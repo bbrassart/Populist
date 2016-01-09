@@ -2,14 +2,27 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require angular/angular
-//= require_tree .
-var populist = angular.module('populist', []);
+//= require angular
+//= require angular-route
+//= require angular-rails-templates
+//= require_tree ./templates
 
-populist.controller('PopulistCtrl', function($scope) {
-  $scope.firstName = "Pete";
-  $scope.lastName = "Sampras";
-})
+var populist = angular.module('populist', ['templates', 'ngRoute']);
+
+populist.config(function($routeProvider) {
+  $routeProvider.
+    when('/', {
+      templateUrl: "index.html",
+      controller: 'NamesCtrl'
+    }).
+    when('/:player', {
+      templateUrl: "show.html",
+      controller: "ShowCtrl"
+    }).
+    otherwise({
+      redirectTo: '/'
+    })
+  });
 
 populist.controller('NamesCtrl', ['$scope', '$http', function(scope, http) {
   http.get('/players.json').success(function(data) {
@@ -32,6 +45,10 @@ populist.controller('NamesCtrl', ['$scope', '$http', function(scope, http) {
   //    }
   //  }
 //  };
+  }
+])
 
+populist.controller('ShowCtrl', ['$scope', '$http', '$routeParams', function(scope, http, routeParams) {
+  console.log(routeParams);
   }
 ])
