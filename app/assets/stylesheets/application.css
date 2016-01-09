@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+ .container {
+   display: flex;
+ }
+
+ .item {
+   order: 1;
+   flex-grow: 1;
+
+ }

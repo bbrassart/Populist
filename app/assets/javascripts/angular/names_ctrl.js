@@ -5,6 +5,9 @@ populist.controller('NamesCtrl', ['$scope', '$http', function(scope, http) {
   scope.sortField = "votes";
   scope.reverse = true;
 
+//  $scope.voteForPerson = function() {
+//  };
+
 //  $scope.addPerson = function() {
 //    $scope.person = {name: $scope.enteredName, age: $scope.enteredAge};
   //  $scope.people.push($scope.person);

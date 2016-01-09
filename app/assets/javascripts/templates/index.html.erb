@@ -1,22 +1,30 @@
-<h1>Vote for these guys</h1>
-<input type="text" ng-model="query" placeholder="Filter players">
-<table>
-  <tr>
-    <th><a href="" ng-click="sortField = 'name'; reverse = !reverse">Name</a></th>
-    <th><a href="" ng-click="sortField = 'birth_date'; reverse = !reverse">Date of birth</a></th>
-    <th><a href="" ng-click="sortField = 'votes'; reverse = !reverse">Number of votes</a></th>
-    <th>Delete?</th>
-  </tr>
-  <tr ng-repeat="person in people | filter:query | orderBy:sortField:reverse">
-    <td>{{person.name}}</td>
-    <td>{{person.birth_date | date}}</td>
-    <td>{{person.votes}}</td>
-    <td><a href="" ng-click="removePerson(person)">X</a></td>
-  </tr>
-</table>
-<h1>Add a player</h1>
-<form ng-submit="addPerson()">
-  <input type="text" ng-model="enteredName" placeholder="Enter a name">
-  <input type="text" ng-model="enteredAge" placeholder="Enter an age">
-  <input type="submit" value="Add to the list">
-</form>
+<div class="container">
+  <div class="item">
+    <h1>Vote for these guys</h1>
+    <input type="text" ng-model="query" placeholder="Filter players">
+    <table>
+      <tr>
+        <th><a href="" ng-click="sortField = 'name'; reverse = !reverse">Name</a></th>
+        <th><a href="" ng-click="sortField = 'birth_date'; reverse = !reverse">Date of birth</a></th>
+        <th><a href="" ng-click="sortField = 'votes'; reverse = !reverse">Number of votes</a></th>
+        <th>Vote for him</th>
+        <th>Delete?</th>
+      </tr>
+      <tr ng-repeat="person in people | filter:query | orderBy:sortField:reverse">
+        <td>{{person.name}}</td>
+        <td>{{person.birth_date | date}}</td>
+        <td>{{person.votes}}</td>
+        <td><a href="" ng-click="voteForPerson(person)">Vote</a></td>
+        <td><a href="" ng-click="removePerson(person)">X</a></td>
+      </tr>
+    </table>
+  </div>
+  <div class="item">
+    <h1>Add a player</h1>
+    <form ng-submit="addPerson()">
+      <input type="text" ng-model="enteredName" placeholder="Enter a name">
+      <input type="text" ng-model="enteredAge" placeholder="Enter an age">
+      <input type="submit" value="Add to the list">
+    </form>
+  </div>
+</div>
