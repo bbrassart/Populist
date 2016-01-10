@@ -1,1 +1,32 @@
-this is another view
+<div class="container">
+  <div class="item">
+    <a href="#/">Back to main menu</a>
+    <p>Vote for the following election :</p>
+    <h1>{{election.name}}</h1>
+    <input type="text" ng-model="query" placeholder="Filter players">
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Date of birth</th>
+        <th>Number of votes</th>
+        <th>Vote for him</th>
+        <th>Delete?</th>
+      </tr>
+      <tr ng-repeat="player in players | filter:query">
+        <td>{{player.name}}</td>
+        <td>{{player.birth_date | date}}</td>
+        <td>{{player.votes}}</td>
+        <td><a href="" ng-click="voteForPerson(person)">Vote</a></td>
+        <td><a href="" ng-click="removePerson(person)">X</a></td>
+      </tr>
+    </table>
+  </div>
+  <div class="item">
+    <h1>Add a player</h1>
+    <form ng-submit="addPerson()">
+      <input type="text" ng-model="enteredName" placeholder="Enter a name">
+      <input type="text" ng-model="enteredAge" placeholder="Enter an age">
+      <input type="submit" value="Add to the list">
+    </form>
+  </div>
+</div>

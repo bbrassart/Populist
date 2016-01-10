@@ -6,6 +6,6 @@
 //= require angular-route
 //= require angular-rails-templates
 //= require angular/init_config
-//= require angular/names_ctrl
-//= require angular/show_ctrl
+//= require angular/elections_ctrl
+//= require angular/players_ctrl
 //= require_tree ./templates

@@ -4,11 +4,11 @@ populist.config(function($routeProvider) {
   $routeProvider.
     when('/', {
       templateUrl: "index.html",
-      controller: 'NamesCtrl'
+      controller: 'ElectionsCtrl'
     }).
-    when('/:player', {
+    when('/:election', {
       templateUrl: "show.html",
-      controller: "ShowCtrl"
+      controller: "PlayersCtrl"
     }).
     otherwise({
       redirectTo: '/'

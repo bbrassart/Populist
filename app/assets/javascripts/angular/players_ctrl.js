@@ -1,9 +1,9 @@
-populist.controller('NamesCtrl', ['$scope', '$http', function(scope, http) {
-  http.get('/players.json').success(function(data) {
-    scope.people = data;
+populist.controller('PlayersCtrl', ['$scope', '$http', '$routeParams', function(scope, http, routeParams) {
+  http.get('/api/v1/' + routeParams.election).success(function(data) {
+    scope.election = data.election;
+    scope.players = data.players;
   })
-  scope.sortField = "votes";
-  scope.reverse = true;
+
 
 //  $scope.voteForPerson = function() {
 //  };
