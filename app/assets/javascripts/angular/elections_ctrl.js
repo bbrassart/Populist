@@ -1,10 +1,12 @@
-populist.controller('ElectionsCtrl', function($scope, getElections) {
-  getElections.list(function(elections) {
+populist.controller('ElectionsCtrl', function($scope, fetchData) {
+  fetchData.list(function(elections) {
     $scope.elections = elections;
   })
 
   $scope.sortField = "name";
   $scope.reverse = true;
+  $scope.new_election = {name: ""}
+});
 
 //  $scope.voteForPerson = function() {
 //  };
@@ -23,5 +25,3 @@ populist.controller('ElectionsCtrl', function($scope, getElections) {
   //    }
   //  }
 //  };
-  }
-)

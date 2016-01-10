@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get '/all_elections' => 'players#all_elections'
-      get '/:election' => 'players#all_players'
+      get '/:id' => 'players#all_players'
       post '/upvote/:player' => 'players#upvote_player'
     end
   end

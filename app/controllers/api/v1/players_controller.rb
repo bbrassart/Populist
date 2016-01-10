@@ -6,7 +6,7 @@ class Api::V1::PlayersController < ApplicationController
   end
 
   def all_players
-    selected_election = Election.find_by_name(params[:election])
+    selected_election = Election.find(params[:id])
     all_players = selected_election.players
     response = {election: selected_election, players: all_players}
     render json: response

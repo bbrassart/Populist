@@ -9,8 +9,17 @@
       </tr>
       <tr ng-repeat="election in elections | filter:query | orderBy:sortField:reverse">
         <td>{{election.name}}</td>
-        <td><a href="#/{{election.name}}">See it</a></td>
+        <td><a href="#/{{election.id | encodeURI }}">See it</a></td>
       </tr>
     </table>
+  </div>
+  <div class="item">
+    <h1>Or create your own!</h1>
+    <form>
+      <label>Enter the name of the election</label><br>
+      <input type="text" ng-model="new_election.name" placeholder="Choose a name for your election">
+      <input type="submit">
+    </form>
+    <h2>{{new_election.name}}
   </div>
 </div>

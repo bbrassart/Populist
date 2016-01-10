@@ -1,9 +1,10 @@
-populist.controller('PlayersCtrl', ['$scope', '$http', '$routeParams', function(scope, http, routeParams) {
-  http.get('/api/v1/' + routeParams.election).success(function(data) {
-    scope.election = data.election;
-    scope.players = data.players;
+populist.controller('PlayersCtrl', function($scope, $http, $routeParams, fetchData) {
+  console.log($routeParams)
+  fetchData.find($routeParams.id, function(data){
+    $scope.election = data.election;
+    $scope.players = data.players;
   })
-
+})
 
 //  $scope.voteForPerson = function() {
 //  };
@@ -22,5 +23,3 @@ populist.controller('PlayersCtrl', ['$scope', '$http', '$routeParams', function(
   //    }
   //  }
 //  };
-  }
-])
