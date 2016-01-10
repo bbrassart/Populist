@@ -1,28 +1,20 @@
-== README
+== POPULIST, DIRECT DEMOCRACY USING ANGULAR JS APP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+DESCRIPTION:
 
-Things you may want to cover:
+I used AngularJS in order to create this single page app. It's a very simple voting system where you can add election, add participants to the election (they're called Players in the app) and, of course, vote for someone.
+In the backend, I set up a simple Rails API that uses a standard MYSQL DB.
+The front-end is handled by AngularJS v.1.5.0. Those packages are managed through Bower.
+No user authentication yet.
+Enjoy!
 
-* Ruby version
+GET STARTED:
 
-* System dependencies
+- git clone the repo
+- bundle install
+- Create and populate the DB using 'rake db:setup'
+- Install bower and run 'rake bower:install'
+- launch the server with 'rails s' and you're good to go!
+- head to 'localhost:3000' and enjoy!
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Ruby version: 2.2.2

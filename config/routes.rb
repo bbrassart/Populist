@@ -10,8 +10,6 @@ Rails.application.routes.draw do
       post '/upvote/:id' => 'players#upvote'
       post '/new_election' => 'players#add_election'
       post '/:id/addPlayer' => 'players#add_player'
-
     end
   end
-
 end
