@@ -6,10 +6,12 @@
       <tr>
         <th><a href="" ng-click="sortField = 'name'; reverse = !reverse">Name</a></th>
         <th>Direct link</th>
+        <th>Delete election</th>
       </tr>
       <tr ng-repeat="election in elections | filter:query | orderBy:sortField:reverse">
         <td>{{election.name}}</td>
         <td><a href="#/{{election.id | encodeURI }}">See it</a></td>
+        <td><a href="" ng-click="deleteElection(election)">Delete it</a></td>
       </tr>
     </table>
   </div>
@@ -18,7 +20,7 @@
     <form>
       <label>Enter the name of the election</label><br>
       <input type="text" ng-model="new_election.name" placeholder="Choose a name for your election">
-      <input type="submit">
+      <input type="submit" ng-click="addElection()">
     </form>
     <h2>{{new_election.name}}
   </div>

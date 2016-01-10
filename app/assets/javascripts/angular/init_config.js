@@ -15,6 +15,10 @@ populist.config(function($routeProvider) {
     })
   });
 
+populist.config(function($httpProvider) {
+  $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
+});
+
 populist.factory('fetchData', ['$http', function(http) {
   function getData(callback) {
     http({
@@ -30,11 +34,45 @@ populist.factory('fetchData', ['$http', function(http) {
       url: '/api/v1/' + id,
       cache: true
     }).success(callback);
-  }
+  };
+
+  function upvote(id, callback) {
+    http({
+      method: 'POST',
+      url: '/api/v1/upvote/' + id
+    }).success(callback);
+  };
+
+  function addElection(new_election, callback) {
+    http({
+      method: 'POST',
+      url: '/api/v1/new_election',
+      data: new_election
+    }).success(callback);
+  };
+
+  function addPlayer(id, new_player, callback) {
+    http({
+      method: 'POST',
+      url: '/api/v1/' + id + '/addPlayer',
+      data: new_player
+    }).success(callback);
+  };
+
+  function deleteElection(election, callback) {
+    http({
+      method: 'DELETE',
+      url: '/api/v1/deleteElection/' + election.id
+    }).success(callback);
+  };
 
   return {
     list: getData,
-    find: findElection
+    find: findElection,
+    upvote: upvote,
+    addElection: addElection,
+    addPlayer: addPlayer,
+    deleteElection: deleteElection
   }
 }])
 

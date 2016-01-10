@@ -4,24 +4,17 @@ populist.controller('ElectionsCtrl', function($scope, fetchData) {
   })
 
   $scope.sortField = "name";
-  $scope.reverse = true;
+  $scope.reverse = false;
   $scope.new_election = {name: ""}
+
+  $scope.addElection = function() {
+    fetchData.addElection($scope.new_election, function(data) {
+    });
+    $scope.new_election = {name: ""};
+  };
+
+  $scope.deleteElection = function(election) {
+    fetchData.deleteElection(election, function(data) {
+    });
+  }
 });
-
-//  $scope.voteForPerson = function() {
-//  };
-
-//  $scope.addPerson = function() {
-//    $scope.person = {name: $scope.enteredName, age: $scope.enteredAge};
-  //  $scope.people.push($scope.person);
-//    $scope.enteredName = "";
-  //  $scope.enteredAge = "";
-//  };
-
-//  $scope.removePerson = function(person) {
-//    for (var i = 0; i < $scope.people.length; i++) {
-//    if ($scope.people[i].name == person.name) {
-  //      $scope.people.splice(i, 1)
-  //    }
-  //  }
-//  };
