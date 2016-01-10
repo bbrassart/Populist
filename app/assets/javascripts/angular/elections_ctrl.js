@@ -1,9 +1,10 @@
-populist.controller('ElectionsCtrl', ['$scope', '$http', function(scope, http) {
-  http.get('/api/v1/all_elections').success(function(data) {
-    scope.elections = data;
+populist.controller('ElectionsCtrl', function($scope, getElections) {
+  getElections.list(function(elections) {
+    $scope.elections = elections;
   })
-  scope.sortField = "name";
-  scope.reverse = true;
+
+  $scope.sortField = "name";
+  $scope.reverse = true;
 
 //  $scope.voteForPerson = function() {
 //  };
@@ -23,4 +24,4 @@ populist.controller('ElectionsCtrl', ['$scope', '$http', function(scope, http) {
   //  }
 //  };
   }
-])
+)

@@ -9,7 +9,7 @@
       </tr>
       <tr ng-repeat="election in elections | filter:query | orderBy:sortField:reverse">
         <td>{{election.name}}</td>
-        <td><a href="#{{election.name}}">See it</a></td>
+        <td><a href="#/{{election.name}}">See it</a></td>
       </tr>
     </table>
   </div>

@@ -14,3 +14,17 @@ populist.config(function($routeProvider) {
       redirectTo: '/'
     })
   });
+
+populist.factory('getElections', ['$http', function(http) {
+  function getData(callback) {
+    http({
+      method: 'GET',
+      url: '/api/v1/all_elections',
+      cache: true
+    }).success(callback);
+  }
+
+  return {
+    list: getData
+  }
+}])
