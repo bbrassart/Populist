@@ -1,7 +1,7 @@
 var populist = angular.module('populist', ['templates', 'ngRoute']);
 
-populist.config(function($routeProvider) {
-  $routeProvider.
+populist.config(['$routeProvider', function(routeProvider) {
+  routeProvider.
     when('/', {
       templateUrl: "index.html",
       controller: 'ElectionsCtrl'
@@ -13,11 +13,11 @@ populist.config(function($routeProvider) {
     otherwise({
       redirectTo: '/'
     })
-  });
+  }]);
 
-populist.config(function($httpProvider) {
-  $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
-});
+populist.config(['$httpProvider', function(httpProvider) {
+  httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
+}]);
 
 populist.factory('fetchData', ['$http', function(http) {
   function getData(callback) {
@@ -40,6 +40,13 @@ populist.factory('fetchData', ['$http', function(http) {
     http({
       method: 'POST',
       url: '/api/v1/upvote/' + id
+    }).success(callback);
+  };
+
+  function deletePlayer(id, callback) {
+    http({
+      method: 'DELETE',
+      url: '/api/v1/deletePlayer/' + id
     }).success(callback);
   };
 
@@ -72,8 +79,9 @@ populist.factory('fetchData', ['$http', function(http) {
     upvote: upvote,
     addElection: addElection,
     addPlayer: addPlayer,
-    deleteElection: deleteElection
-  }
+    deleteElection: deleteElection,
+    deletePlayer: deletePlayer
+  };
 }])
 
 populist.filter('encodeURI', function() {

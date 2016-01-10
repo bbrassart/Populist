@@ -31,10 +31,16 @@ class Api::V1::PlayersController < ApplicationController
     render nothing: true
   end
 
+  def delete_player
+    player = Player.find(params[:id])
+    player.destroy
+    render nothing: true
+  end
+
   def add_player
     current_election = Election.find(params[:id])
-    current_election.players.create(name: params[:name],
-    birth_date: params[:new_player][:birth_date],
+    current_election.players.create(name: params[:player][:name],
+    age: params[:player][:age],
     votes: 0)
     current_election.save
     render nothing: true

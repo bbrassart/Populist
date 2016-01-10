@@ -7,25 +7,28 @@
     <table>
       <tr>
         <th>Name</th>
-        <th>Date of birth</th>
+        <th>Age</th>
         <th>Number of votes</th>
         <th>Vote for him</th>
+        <th>Delete him</th>
       </tr>
       <tr ng-repeat="player in players | filter:query">
         <td>{{player.name}}</td>
-        <td>{{player.birth_date | date}}</td>
+        <td>{{player.age}} years old</td>
         <td>{{player.votes}}</td>
         <td><a href="" ng-click="voteForPerson(player)">Vote</a></td>
+        <td><a href="" ng-click="deletePlayer(player)">Delete him</a></td>
       </tr>
     </table>
   </div>
   <div class="item">
     <h1>Add a player</h1>
     <form>
-      <input type="text" ng-model="enteredName" placeholder="Enter a name">
-      <input type="date" ng-model="enteredAge">
+      <input type="text" ng-model="new_player.name" placeholder="Enter a name">
+      <input type="number" ng-model="new_player.age">
       <input type="submit" value="Add to the list" ng-click="addPlayer()">
     </form>
-    <h2>{{player.name}} {{player.age}}</h2>
+    <p>The name will be: </p><h2>{{new_player.name}}</h2>
+    <p>He will be: </p><h2>{{new_player.age}}</h2>
   </div>
 </div>
