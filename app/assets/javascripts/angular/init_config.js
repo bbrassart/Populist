@@ -66,10 +66,10 @@ populist.factory('fetchData', ['$http', function(http) {
     }).success(callback);
   };
 
-  function deleteElection(election, callback) {
+  function deleteElection(id, callback) {
     http({
       method: 'DELETE',
-      url: '/api/v1/deleteElection/' + election.id
+      url: '/api/v1/deleteElection/' + id
     }).success(callback);
   };
 

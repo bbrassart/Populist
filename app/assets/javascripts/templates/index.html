@@ -4,14 +4,14 @@
     <input type="text" ng-model="query" placeholder="Filter elections">
     <table>
       <tr>
-        <th><a href="" ng-click="sortField = 'name'; reverse = !reverse">Name</a></th>
+        <th>Name</th>
         <th>Direct link</th>
         <th>Delete election</th>
       </tr>
-      <tr ng-repeat="election in elections | filter:query | orderBy:sortField:reverse">
+      <tr ng-repeat="election in elections | filter:query">
         <td>{{election.name}}</td>
         <td><a href="#/{{election.id | encodeURI }}">See it</a></td>
-        <td><a href="" ng-click="deleteElection(election)">Delete it</a></td>
+        <td><a href="" ng-click="deleteElection($index)">Delete it</a></td>
       </tr>
     </table>
   </div>

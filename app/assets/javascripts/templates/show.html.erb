@@ -16,8 +16,8 @@
         <td>{{player.name}}</td>
         <td>{{player.age}} years old</td>
         <td>{{player.votes}}</td>
-        <td><a href="" ng-click="voteForPerson(player)">Vote</a></td>
-        <td><a href="" ng-click="deletePlayer(player)">Delete him</a></td>
+        <td><a href="" ng-click="voteForPerson($index)">Vote</a></td>
+        <td><a href="" ng-click="deletePlayer($index)">Delete him</a></td>
       </tr>
     </table>
   </div>

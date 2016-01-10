@@ -16,13 +16,15 @@ class Api::V1::PlayersController < ApplicationController
     selected_player = Player.find(params[:id])
     selected_player.votes += 1
     selected_player.save
-    render nothing: true
+    players = Player.all
+    render json: players
   end
 
   def add_election
     election = Election.create(name: params[:name])
     election.save
-    render nothing: true
+    elections = Election.all
+    render json: elections
   end
 
   def delete_election
@@ -42,7 +44,8 @@ class Api::V1::PlayersController < ApplicationController
     current_election.players.create(name: params[:player][:name],
     age: params[:player][:age],
     votes: 0)
-    current_election.save
-    render nothing: true
+    if current_election.save
+      render json: current_election.players
+    end
   end
 end
