@@ -90,6 +90,7 @@ GEM
     multi_json (1.11.2)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
+    oj (2.14.3)
     orm_adapter (0.5.0)
     pry (0.10.3)
       coderay (~> 1.1.0)
@@ -97,6 +98,8 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    rabl (0.11.8)
+      activesupport (>= 2.3.14)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -181,7 +184,9 @@ DEPENDENCIES
   faker
   jbuilder (~> 2.0)
   jquery-rails
+  oj
   pry-rails
+  rabl
   rails (= 4.2.3)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

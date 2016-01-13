@@ -1,8 +1,8 @@
 class Api::V1::PlayersController < ApplicationController
 
   def all_elections
-    elections = Election.all
-    render json: elections
+    @elections = Election.all
+    render "elections/all_elections"
   end
 
   def all_players

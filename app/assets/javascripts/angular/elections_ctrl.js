@@ -1,7 +1,9 @@
 populist.controller('ElectionsCtrl', function($scope, $timeout, fetchData) {
   fetchData.list(function(elections) {
-    $scope.elections = elections;
-  })
+    $scope.elections = elections.map(function(election) {
+      return election.election;
+    })
+  });
   $scope.new_election = {name: ""}
 
   $scope.addElection = function() {

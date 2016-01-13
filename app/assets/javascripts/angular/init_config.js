@@ -23,7 +23,7 @@ populist.factory('fetchData', ['$http', function(http) {
   function getData(callback) {
     http({
       method: 'GET',
-      url: '/api/v1/all_elections',
+      url: '/api/v1/all_elections.json',
       cache: true
     }).success(callback);
   };
