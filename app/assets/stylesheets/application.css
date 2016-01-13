@@ -16,9 +16,15 @@
 
  .container {
    display: flex;
+   justify-content: center;
  }
 
  .item {
    order: 1;
    flex-grow: 1;
  }
+
+.logo_container {
+  display: flex;
+  justify-content: center; 
+}
